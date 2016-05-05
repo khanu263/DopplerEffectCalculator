@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DopplerEffectCalculator</string>
+    <string name="action_settings">Settings</string>
+    <string name="text_welcome">Welcome to the Doppler Effect Calculator.</string>
+    <string name="text_originalFrequency">Original frequency:</string>
+    <string name="edit_hint_originalFrequency">Hertz (Hz)</string>
+    <string name="text_temperature">Temperature:</string>
+    <string name="edit_hint_temperature">Celsius (°C)</string>
+    <string name="text_vel_o">Velocity of observer:</string>
+    <string name="edit_hint_vel_o">m/s</string>
+</resources>
