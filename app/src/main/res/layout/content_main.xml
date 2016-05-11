@@ -12,6 +12,10 @@
     tools:context="com.example.khanu263.dopplereffectcalculator.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -31,6 +35,16 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="@string/text_scroll"
+            android:textColor="#999999"
+            android:id="@+id/text_scroll"
+            android:paddingTop="7sp"
+            android:textIsSelectable="false" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
             android:textColor="#000000"
@@ -42,7 +56,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:hint="@string/edit_hint_originalFrequency"
-            android:maxLength="3"
+            android:maxLength="5"
             android:ems="10"
             android:id="@+id/edit_freq"
             android:layout_marginTop="7dp"/>
@@ -67,24 +81,142 @@
             android:layout_marginTop="7dp"/>
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
             android:textSize="20sp"
             android:textColor="#000000"
             android:text="@string/text_vel_o"
             android:id="@+id/text_signal_vel_o"/>
 
-        <EditText
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/edit_hint_vel"
+                android:maxLength="3"
+                android:ems="10"
+                android:id="@+id/edit_vel_o"
+                android:layout_marginTop="7dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radioGroup_o"
+                    android:checkedButton="@+id/check_vel_o_t">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/check_vel_t"
+                        android:id="@+id/check_vel_o_t" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/check_vel_a"
+                        android:id="@+id/check_vel_o_a" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:text="@string/text_vel_s"
+            android:id="@+id/text_signal_vel_s"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="@string/edit_hint_vel"
+                android:maxLength="3"
+                android:ems="10"
+                android:id="@+id/edit_vel_s"
+                android:layout_marginTop="7dp"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40sp">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radioGroup_s"
+                    android:checkedButton="@+id/check_vel_s_t">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/check_vel_t"
+                        android:id="@+id/check_vel_s_t" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/check_vel_a"
+                        android:id="@+id/check_vel_s_a" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="@string/edit_hint_vel_o"
-            android:maxLength="3"
-            android:ems="10"
-            android:id="@+id/edit_vel_o"
-            android:layout_marginTop="7dp"/>
+            android:id="@+id/button_calculate_doppler"
+            android:text="@string/button_calc_doppler"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="28dp"
+            android:text="@string/text_results_freq"
+            android:id="@+id/text_results_freq"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="8dp"
+            android:text="@string/text_results_shift"
+            android:id="@+id/text_results_shift"/>
 
     </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

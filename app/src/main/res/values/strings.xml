@@ -7,5 +7,12 @@
     <string name="text_temperature">Temperature:</string>
     <string name="edit_hint_temperature">Celsius (°C)</string>
     <string name="text_vel_o">Velocity of observer:</string>
-    <string name="edit_hint_vel_o">m/s</string>
+    <string name="edit_hint_vel">m/s</string>
+    <string name="text_vel_s">Velocity of source:</string>
+    <string name="button_calc_doppler">Calculate Doppler Shift</string>
+    <string name="text_results_freq">New frequency:</string>
+    <string name="text_results_shift">Doppler shift:</string>
+    <string name="check_vel_t">towards</string>
+    <string name="check_vel_a">away</string>
+    <string name="text_scroll">(you may need to scroll)</string>
 </resources>
