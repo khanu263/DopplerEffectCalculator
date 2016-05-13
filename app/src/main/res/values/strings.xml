@@ -6,8 +6,10 @@
     <string name="edit_hint_originalFrequency">Hertz (Hz)</string>
     <string name="text_temperature">Temperature:</string>
     <string name="edit_hint_temperature">Celsius (°C)</string>
+    <string name="edit_hint_temperature_imperial">Fahrenheit (°F)</string>
     <string name="text_vel_o">Velocity of observer:</string>
     <string name="edit_hint_vel">m/s</string>
+    <string name="edit_hint_vel_imperial">ft/s</string>
     <string name="text_vel_s">Velocity of source:</string>
     <string name="button_calc_doppler">Calculate Doppler Shift</string>
     <string name="text_results_freq">New frequency:</string>
@@ -15,4 +17,7 @@
     <string name="check_vel_t">towards</string>
     <string name="check_vel_a">away</string>
     <string name="text_scroll">(you may need to scroll)</string>
+    <string name="text_change_units">Units:</string>
+    <string name="check_metric">Metric</string>
+    <string name="check_imperial">Imperial</string>
 </resources>
