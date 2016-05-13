@@ -1,6 +1,8 @@
 package com.example.khanu263.dopplereffectcalculator;
 
+import android.content.Intent;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 /**
  * Created by khanu263 on 5/9/2016.
@@ -24,8 +26,17 @@ public class Model {
         }
     }
 
-    static boolean isInRange(int data, int lower, int upper) {
+    static boolean isInRange(double data, int lower, int upper) {
         if (data >= lower && data <= upper) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // Check if towards or away
+    static boolean isChecked (RadioButton rb) {
+        if (rb.isChecked()) {
             return true;
         } else {
             return false;
@@ -43,7 +54,7 @@ public class Model {
 
         // Try to parse the field (see if it can be converted to an int)
         try {
-            int data = Integer.parseInt(field.getText().toString());
+            double data = Double.parseDouble(field.getText().toString());
             if (isInRange(data, lowerFreqRange, upperFreqRange)) {
                 return true;
             } else {
@@ -68,7 +79,7 @@ public class Model {
 
         // Try to parse the field (see if it can be converted to an int)
         try {
-            int data = Integer.parseInt(field.getText().toString());
+            double data = Double.parseDouble(field.getText().toString());
             if (isInRange(data, lowerTempRange, upperTempRange)) {
                 return true;
             } else {
@@ -87,13 +98,13 @@ public class Model {
 
         // Check if empty
         if (isEmpty(field)) {
-            field.setError("Field is empty.");
-            return false;
+            field.setText("0");
+            return true;
         }
 
         // Try to parse the field (see if it can be converted to an int)
         try {
-            int data = Integer.parseInt(field.getText().toString());
+            double data = Double.parseDouble(field.getText().toString());
             if (isInRange(data, lowerVelRange, upperVelRange)) {
                 return true;
             } else {
@@ -108,9 +119,60 @@ public class Model {
     }
 
     // Calculate speed of sound
-    static int calculateSound (EditText edit_temp) {
-        int temperature = Integer.parseInt(edit_temp.getText().toString());
-        return temperature;
+    static double calculateSound (EditText edit_temp) {
+        double temperature = Double.parseDouble(edit_temp.getText().toString());
+        double sound = (Math.round((331.4 + (0.6 * temperature)) * 10));
+        sound = sound / 10;
+        return sound;
+    }
+
+    // Calculate new frequency
+    static double calculateDoppler (EditText edit_freq, EditText edit_temp, EditText edit_vel_o, EditText edit_vel_s, RadioButton o_t, RadioButton s_t) {
+
+        double dopplerFreq;
+
+        if (isValidFreq(edit_freq) && isValidTemp(edit_temp) && isValidVelocity(edit_vel_o) & isValidVelocity(edit_vel_s)) {
+
+            double originalFreq = Double.parseDouble(edit_freq.getText().toString());
+            double speedOfSound = calculateSound(edit_temp);
+            double observerVel = Double.parseDouble(edit_vel_o.getText().toString());
+            double sourceVel = Double.parseDouble(edit_vel_s.getText().toString());
+
+            if (!(isChecked(o_t))) {
+                observerVel = observerVel * -1;
+            }
+
+            if (!(isChecked(s_t))) {
+                sourceVel = sourceVel * -1;
+            }
+
+            dopplerFreq = (Math.round((originalFreq * ((speedOfSound + observerVel) / (speedOfSound - sourceVel))) * 10));
+            dopplerFreq = dopplerFreq / 10;
+
+        } else {
+            dopplerFreq = 0.0;
+        }
+
+        return dopplerFreq;
+    }
+
+    // Calculate shift in frequency
+    static String calculateShift (EditText edit_freq, double dopplerFreq) {
+
+        String shift;
+        double originalFreq = Double.parseDouble(edit_freq.getText().toString());
+        double dopplerShift = Math.round((originalFreq - dopplerFreq) * 10);
+        dopplerShift = dopplerShift / 10;
+
+        if (dopplerShift < 0) {
+            dopplerShift = dopplerShift * -1;
+            shift = "The frequency decreased by " + dopplerShift + " Hz.";
+            return shift;
+        } else {
+            shift = "The frequency increased by " + dopplerShift + " Hz.";
+            return shift;
+        }
+
     }
 
 }
