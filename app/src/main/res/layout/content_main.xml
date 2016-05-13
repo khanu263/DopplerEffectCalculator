@@ -48,15 +48,45 @@
             android:layout_marginTop="20dp"
             android:textSize="20sp"
             android:textColor="#000000"
+            android:text="@string/text_change_units"
+            android:id="@+id/text_change_units"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:id="@+id/radioGroup_units"
+            android:checkedButton="@+id/check_metric">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_metric"
+                android:id="@+id/check_metric" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_imperial"
+                android:id="@+id/check_imperial" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textColor="#000000"
             android:text="@string/text_originalFrequency"
             android:id="@+id/text_signal_freq"/>
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:hint="@string/edit_hint_originalFrequency"
-            android:maxLength="5"
+            android:maxLength="7"
             android:ems="10"
             android:id="@+id/edit_freq"
             android:layout_marginTop="7dp"/>
@@ -73,9 +103,9 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:hint="@string/edit_hint_temperature"
-            android:maxLength="3"
+            android:maxLength="5"
             android:ems="10"
             android:id="@+id/edit_temp"
             android:layout_marginTop="7dp"/>
@@ -97,9 +127,9 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:hint="@string/edit_hint_vel"
-                android:maxLength="3"
+                android:maxLength="5"
                 android:ems="10"
                 android:id="@+id/edit_vel_o"
                 android:layout_marginTop="7dp"/>
@@ -151,9 +181,9 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:hint="@string/edit_hint_vel"
-                android:maxLength="3"
+                android:maxLength="5"
                 android:ems="10"
                 android:id="@+id/edit_vel_s"
                 android:layout_marginTop="7dp"/>
