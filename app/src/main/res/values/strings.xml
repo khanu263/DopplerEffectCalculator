@@ -14,7 +14,7 @@
     <string name="button_calc_doppler">Calculate Doppler Shift</string>
     <string name="text_results_freq">New frequency:</string>
     <string name="text_results_shift">Doppler shift:</string>
-    <string name="check_vel_t">towards</string>
+    <string name="check_vel_t">toward</string>
     <string name="check_vel_a">away</string>
     <string name="text_scroll">(you may need to scroll)</string>
     <string name="text_change_units">Units:</string>

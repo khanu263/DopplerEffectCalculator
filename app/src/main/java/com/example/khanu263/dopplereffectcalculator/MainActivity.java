@@ -39,39 +39,69 @@ public class MainActivity extends AppCompatActivity {
         text_results_freq = (TextView) findViewById(R.id.text_results_freq);
         text_results_shift = (TextView) findViewById(R.id.text_results_shift);
 
+        // Listen for checking metric
         check_metric.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Reset input fields
+                edit_freq.setText("");
+                edit_temp.setText("");
+                edit_vel_o.setText("");
+                edit_vel_s.setText("");
+
+                // Change hints
                 edit_temp.setHint(getString(R.string.edit_hint_temperature));
                 edit_vel_o.setHint(getString(R.string.edit_hint_vel));
                 edit_vel_s.setHint(getString(R.string.edit_hint_vel));
             }
         });
 
+        // Listen for checking imperial
         check_imperial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Reset input fields
+                edit_freq.setText("");
+                edit_temp.setText("");
+                edit_vel_o.setText("");
+                edit_vel_s.setText("");
+
+                // Change hints
                 edit_temp.setHint(getString(R.string.edit_hint_temperature_imperial));
                 edit_vel_o.setHint(getString(R.string.edit_hint_vel_imperial));
                 edit_vel_s.setHint(getString(R.string.edit_hint_vel_imperial));
             }
         });
 
+        // Listen for calculation
         button_calculate_doppler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Initialize variables
                 String results;
                 String results2;
-                double dopplerFreq = Model.calculateDoppler(edit_freq, edit_temp, edit_vel_o, edit_vel_s, check_vel_o_t, check_vel_s_t);
+                double dopplerFreq = 0.0;
 
+                // Get Doppler frequency
+                if (check_metric.isChecked()) {
+                    dopplerFreq = Model.calculateDoppler(edit_freq, edit_temp, edit_vel_o, edit_vel_s, check_vel_o_t, check_vel_s_t, false);
+                } else if (check_imperial.isChecked()) {
+                    dopplerFreq = Model.calculateDoppler(edit_freq, edit_temp, edit_vel_o, edit_vel_s, check_vel_o_t, check_vel_s_t, true);
+                }
+
+                // Set result variables
                 if (dopplerFreq == 0.0) {
                     results = "There was an error with your inputs.";
                     results2 = "Check them!";
+                } else if (dopplerFreq == -1.1) {
+                    results = "Really? Your wave doesn't exist.";
+                    results2 = "Consider the exception caught.";
                 } else {
                     results = "New frequency: " + dopplerFreq + " Hz";
                     results2 = Model.calculateShift(edit_freq, dopplerFreq);
                 }
 
+                // Show user results
                 text_results_freq.setText(results);
                 text_results_shift.setText(results2);
             }
