@@ -43,8 +43,7 @@ public class MainActivity extends AppCompatActivity {
         check_metric.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Reset input fields
-                edit_freq.setText("");
+                // Reset input fields except frequency
                 edit_temp.setText("");
                 edit_vel_o.setText("");
                 edit_vel_s.setText("");
@@ -60,8 +59,7 @@ public class MainActivity extends AppCompatActivity {
         check_imperial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Reset input fields
-                edit_freq.setText("");
+                // Reset input fields except frequency
                 edit_temp.setText("");
                 edit_vel_o.setText("");
                 edit_vel_s.setText("");

@@ -197,7 +197,7 @@ public class Model {
             if (isValidFreq(edit_freq) && isValidTempImperial(edit_temp) && isValidVelocityImperial(edit_vel_o) & isValidVelocityImperial(edit_vel_s)) {
 
                 // If the original frequency is 0, return special value
-                if (Integer.parseInt(edit_freq.getText().toString()) == 0) {
+                if (Double.parseDouble(edit_freq.getText().toString()) == 0) {
                     return -1.1;
                 }
 
@@ -229,7 +229,7 @@ public class Model {
             // Same, but without imperial corrections
             if (isValidFreq(edit_freq) && isValidTemp(edit_temp) && isValidVelocity(edit_vel_o) & isValidVelocity(edit_vel_s)) {
 
-                if (Integer.parseInt(edit_freq.getText().toString()) == 0) {
+                if (Double.parseDouble(edit_freq.getText().toString()) == 0.0) {
                     return -1.1;
                 }
 
